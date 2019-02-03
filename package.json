@@ -1,0 +1,47 @@
+{
+	"name": "settings-extender",
+    "publisher": "williamtfligor",
+	"displayName": "settings-extender",
+	"description": "Generate user-settings from multiple .json files elsewhere in the filesystem",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.settingsExtenderRefresh"
+	],
+	"main": "./extension.js",
+	"contributes": {
+        "commands": [
+            {
+                "command": "extension.settingsExtenderRefresh",
+                "title": "Settings Extender - Refresh"
+            }
+        ],
+        "configuration": {
+            "title": "Vim Configuration",
+            "type": "object",
+            "properties": {
+                "settings-extender.files": {
+                    "type": "array",
+                    "description": "Array of files to load",
+                    "default": false
+                }
+            }
+        }
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^8.10.25",
+		"eslint": "^4.11.0",
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25"
+	},
+	"dependencies": {}
+}
